@@ -43,7 +43,7 @@ body {
     height: 120px;
     pointer-events: none;
     animation: fall 10s linear infinite;
-    background-image: url('/image/selen.jpg');
+    background-image: url('image/selen.jpg');
     background-size: 80% 80%;  /* Changed to ensure full image fits */
     background-position: center;  /* Centered the image */
     clip-path: path('M60,30 C60,0 0,0 0,30 C0,60 60,90 60,90 C60,90 120,60 120,30 C120,0 60,0 60,30 Z');
