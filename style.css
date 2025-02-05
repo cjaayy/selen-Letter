@@ -1,0 +1,79 @@
+body {
+    font-family: 'Arial', cursive;
+    background: linear-gradient(135deg, #ff6b6b, #ff9ff3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+.letter-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    padding: 30px;
+    width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.button {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+
+#fullLetter {
+    display: none;
+    text-align: left;
+    line-height: 1.6;
+    color: #333;
+}
+
+.heart {
+    position: fixed;
+    width: 120px;  /* Made slightly larger */
+    height: 120px;
+    pointer-events: none;
+    animation: fall 10s linear infinite;
+    background-image: url('/image/selen.jpg');
+    background-size: 80% 80%;  /* Changed to ensure full image fits */
+    background-position: center;  /* Centered the image */
+    clip-path: path('M60,30 C60,0 0,0 0,30 C0,60 60,90 60,90 C60,90 120,60 120,30 C120,0 60,0 60,30 Z');
+    -webkit-clip-path: path('M60,30 C60,0 0,0 0,30 C0,60 60,90 60,90 C60,90 120,60 120,30 C120,0 60,0 60,30 Z');
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.music-button {
+    background-color: #8e44ad;
+    transition: all 0.3s ease;
+}
+
+.music-button:hover {
+    background-color: #9b59b6;
+    transform: scale(1.05);
+}
+
+.music-label {
+    background-color: #9b59b6;
+    transform: scale(1.05);
+    border-radius: 100px;
+    font-family: monospace;
+}
