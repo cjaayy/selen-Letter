@@ -1,79 +1,143 @@
 body {
-    font-family: 'Arial', cursive;
-    background: linear-gradient(135deg, #ff6b6b, #ff9ff3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    text-align: center;
+  font-family: "Arial", cursive;
+  background: linear-gradient(135deg, #ff6b6b, #ff9ff3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  text-align: center;
+  background-size: contain; /* Change from cover to contain */
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: bgSlide 15s infinite;
+  background: 
+    url("image/1000032755.jpg") center/contain no-repeat;
+}
+
+@keyframes bgSlide {
+  100% { background-image: url("image/1000032755.jpg"); }
 }
 
 .letter-container {
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    padding: 30px;
-    width: 400px;
-    max-height: 80vh;
-    overflow-y: auto;
+  background: rgba(244, 239, 239, 0.184);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 500px;
+  height: 250px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: absolute; /* Make it absolute so it can be moved around */
+  cursor: move; /* Change cursor to indicate it is draggable */
 }
 
 .button {
-    background-color: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin: 10px;
+  background-color: #ffb5c5; /* Pastel pink */
+  color: #4a4a4a;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 10px;
+}
+
+.button:hover {
+  background-color: #ffa5b5; /* Slightly darker pastel pink */
+  transform: scale(1.05);
+  box-shadow: 0px 0px 10px rgba(255, 165, 181, 0.6);
 }
 
 #fullLetter {
-    display: none;
-    text-align: left;
-    line-height: 1.6;
-    color: #333;
+  display: none;
+  text-align: left;
+  line-height: 1.6;
+  color: #4a4a4a;
 }
 
 .heart {
-    position: fixed;
-    width: 120px;  /* Made slightly larger */
-    height: 120px;
-    pointer-events: none;
-    animation: fall 10s linear infinite;
-    background-image: url('image/selen.jpg');
-    background-size: 80% 80%;  /* Changed to ensure full image fits */
-    background-position: center;  /* Centered the image */
-    clip-path: path('M60,30 C60,0 0,0 0,30 C0,60 60,90 60,90 C60,90 120,60 120,30 C120,0 60,0 60,30 Z');
-    -webkit-clip-path: path('M60,30 C60,0 0,0 0,30 C0,60 60,90 60,90 C60,90 120,60 120,30 C120,0 60,0 60,30 Z');
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+  animation: fall 10s linear infinite;
+  background-image: url("image/selen.jpg");
+  background-size: 60%;
+  background-position: center;
+  clip-path: path(
+    "M60,30 C60,0 0,0 0,30 C0,60 60,90 60,90 C60,90 120,60 120,30 C120,0 60,0 60,30 Z"
+  );
+  -webkit-clip-path: path(
+    "M60,30 C60,0 0,0 0,30 C0,60 60,90 60,90 C60,90 120,60 120,30 C120,0 60,0 60,30 Z"
+  );
 }
 
 @keyframes fall {
-    0% {
-        transform: translateY(-100%) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-    }
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 .music-button {
-    background-color: #8e44ad;
-    transition: all 0.3s ease;
+  background-color: #98fb98; /* Pastel green */
+  transition: all 0.3s ease;
 }
 
-.music-button:hover {
-    background-color: #9b59b6;
-    transform: scale(1.05);
+  .music-button:hover {
+  background-color: #88eb88; /* Slightly darker pastel green */
+  transform: scale(1.05);
 }
 
 .music-label {
-    background-color: #9b59b6;
-    transform: scale(1.05);
-    border-radius: 100px;
-    font-family: monospace;
+  background-color: lightseagreen;
+  color: #4a4a4a;
+  transform: scale(1.05);
+  border-radius: 100px;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  padding: 8px 15px;
+  margin-bottom: 15px;
 }
+
+select.button {
+  background-color: lightgreen;
+  color: #4a4a4a;
+}
+
+select.button:hover {
+  background-color: #eee9bd; /* Slightly darker pastel yellow */
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.letter-container.bigger {
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  transition: all 0.5s ease-in-out;
+}
+
+#fullLetter {
+  display: none;
+  text-align: left;
+  line-height: 1.6;
+  color: #4a4a4a;
+  opacity: 0;
+  animation: fadeInScale 0.5s forwards;
+}
+
+

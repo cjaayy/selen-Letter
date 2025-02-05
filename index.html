@@ -1,39 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css" />
     <title>Love Letter</title>
-</head>
-<body>
+  </head>
+  <body>
+    
     <div class="letter-container">
-        <!-- Message Above the Dropdown -->
-        <p class="music-label">🎵 Select a music first and play before read the letter<br>⬇️</p>
-        
-        <!-- Song Selection Dropdown -->
-        <select id="songSelect" class="button">
-            <option value="/music/Nothing's Gonna Hurt You Baby - Cigarettes After Sex.mp3">
-                Nothing's Gonna Hurt You Baby - Cigarettes After Sex
-            </option>
-            <option value="/music/Apocalypse - Cigarettes After Sex.mp3">
-                Apocalypse - Cigarettes After Sex
-            </option>
-        </select>
+      <!-- Message Above the Dropdown -->
+      <p class="music-label">
+        SELECT A MUSIC FIRST AND PLAY BEFORE READING THE LETTER.
+      </p>
 
-        <!-- Buttons Below the Dropdown -->
-        <button id="readButton" class="button">Read My Letter</button>
-        <button id="backButton" class="button" style="display:none;">Back</button>
-        <button id="musicButton" class="button music-button">🎵 Play Music</button>
+      <!-- Song Selection Dropdown -->
+      <select id="songSelect" class="button">
+        <option
+          value="/music/Nothing's Gonna Hurt You Baby - Cigarettes After Sex.mp3"
+        >
+          Nothing's Gonna Hurt You Baby - Cigarettes After Sex
+        </option>
+        <option value="/music/Apocalypse - Cigarettes After Sex.mp3">
+          Apocalypse - Cigarettes After Sex
+        </option>
+      </select>
 
-        <div id="fullLetter"></div>
+      <!-- Buttons Below the Dropdown -->
+      <button id="readButton" class="button">💌 Read My Letter</button>
+      <button id="backButton" class="button" style="display: none">Back</button>
+      <button id="musicButton" class="button music-button">
+        🎵 Play Music
+      </button>
+
+      <div id="fullLetter"></div>
     </div>
 
     <!-- Audio Element -->
     <audio id="bgMusic" loop>
-        <source id="musicSource" src="music/Nothing's Gonna Hurt You Baby - Cigarettes After Sex.mp3" type="audio/mpeg">
-        <source id="musicSource" src="music/Apocalypse - Cigarettes After Sex.mp3" type="audio/mpeg">
+      <source
+        id="musicSource"
+        src="music/Nothing's Gonna Hurt You Baby - Cigarettes After Sex.mp3"
+        type="audio/mpeg"
+        id="musicSource"
+        src="music/Apocalypse - Cigarettes After Sex.mp3"
+        type="audio/mpeg"
+      />
     </audio>
 
     <script src="index.js"></script>
-</body>
+  </body>
 </html>
