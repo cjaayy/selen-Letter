@@ -8,17 +8,21 @@ const musicSource = document.getElementById("musicSource");
 const letterContainer = document.querySelector('.letter-container');
 
 
-let isMusicPlaying = false;
-let isDragging = false;
-let offsetX, offsetY;
 
-// Update music source when a song is selected
+let isMusicPlaying = false;
+
+// Update music source when a song is selected and move the container
 songSelect.addEventListener("change", () => {
-  musicSource.src = songSelect.value;
-  bgMusic.load();
+  bgMusic.src = songSelect.value;  // Set the new song's source
+  bgMusic.load();                  // Reload the audio element to apply changes
+
+  // If music was playing, resume playing
   if (isMusicPlaying) {
     bgMusic.play();
   }
+
+  // Add the "moved" class to trigger the transition (move the container down)
+  letterContainer.classList.add("moved");
 });
 
 // Play/Pause button functionality
@@ -32,6 +36,9 @@ musicButton.addEventListener("click", () => {
   }
   isMusicPlaying = !isMusicPlaying;
 });
+
+
+
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
@@ -42,25 +49,27 @@ function createHeart() {
   document.body.appendChild(heart);
 }
 
- setInterval(createHeart, 3500);
+// setInterval(createHeart, 3500);
 
- readButton.addEventListener("click", () => {
+readButton.addEventListener("click", () => {
   fullLetter.innerHTML = `
-        <h2>Dear Celine Byen,</h2>
+        <h2>Dear My Cebie,</h2>
         <p>
-            Happy Valentine's Day to the most amazing friend anyone could ask for! Today is not just about romantic love; it's about celebrating all the meaningful relationships in our lives, and you are truly one of the most special people to me.
+            Happy Valentine's Day to the most amazing friend anyone could ask for! Today is not just about romantic love; it's a celebration of all the meaningful relationships in our lives, and you hold a truly special place in my heart.
             <br><br>
-            Ever since we became friends, I knew there was something special about you. Your kindness, understanding, and unwavering support have been a constant source of strength for me.
-            <br><br> 
-            This Valentine's Day, I want to thank you for being there. Your empathy and ability to really listen make you a rare gem, and I am so grateful to have you by my side. You understand me in ways that no one else does, and that means the world to me.
+            From the moment we became friends, I sensed there was something uniquely wonderful about you. Your boundless kindness, unwavering support, and deep understanding have been pillars of strength in my life. Whether it's sharing laughter, offering advice, or simply being there, you have always been by my side.
             <br><br>
-            Your Bff, <br>
-            CJay
+            On this Valentine's Day, I want to express my heartfelt gratitude for your presence in my life. Thank you for being such an incredible friend and for always understanding me. Your empathy and genuine ability to listen make you a rare and precious friend. You have a way of understanding me like no one else can, and that connection is invaluable to me.
+            Thank you for always being there, for your unwavering support, and for being the amazing bestfriend.
+            <br><br>
+            Your BFF,
+            <br>
+            Ris
          </p>
     `;
 
   fullLetter.style.display = "block";
-  fullLetter.style.animation = "fadeInScale 0.5s forwards"; // Smooth opening effect
+  fullLetter.style.animation = "fadeInScale 0.5s forwards";
   document.querySelector(".letter-container").classList.add("bigger");
   readButton.style.display = "none";
   backButton.style.display = "inline-block";
@@ -77,21 +86,53 @@ backButton.addEventListener("click", () => {
   }, 300); // Delay hiding to allow fade-out
 });
 
+// Smooth Dragging Logic
 letterContainer.addEventListener('mousedown', (e) => {
   isDragging = true;
-  offsetX = e.clientX - letterContainer.getBoundingClientRect().left;
-  offsetY = e.clientY - letterContainer.getBoundingClientRect().top;
-  letterContainer.style.cursor = 'grabbing'; // Change cursor when dragging
+  offsetX = e.clientX - currentX;
+  offsetY = e.clientY - currentY;
+  letterContainer.style.transition = "none"; // Disable transition while dragging
+  letterContainer.style.cursor = 'grabbing';
 });
 
 document.addEventListener('mousemove', (e) => {
   if (isDragging) {
-    letterContainer.style.left = e.clientX - offsetX + 'px';
-    letterContainer.style.top = e.clientY - offsetY + 'px';
+    currentX = e.clientX - offsetX;
+    currentY = e.clientY - offsetY;
+    letterContainer.style.transform = `translate(${currentX}px, ${currentY}px)`;
   }
 });
 
 document.addEventListener('mouseup', () => {
   isDragging = false;
-  letterContainer.style.cursor = 'move'; // Reset cursor after dragging
+  letterContainer.style.cursor = 'move';
+  letterContainer.style.transition = "transform 0.2s ease-out"; // Smooth movement stop
+});
+
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+let currentX = 0;
+let currentY = 0;
+
+letterContainer.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  offsetX = e.clientX - currentX;
+  offsetY = e.clientY - currentY;
+  letterContainer.style.transition = "none"; // Disable transition while dragging
+  letterContainer.style.cursor = 'grabbing';
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    currentX = e.clientX - offsetX;
+    currentY = e.clientY - offsetY;
+    letterContainer.style.transform = `translate(${currentX}px, ${currentY}px)`;
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  letterContainer.style.cursor = 'move';
+  letterContainer.style.transition = "transform 0.2s ease-out"; // Smooth movement stop
 });

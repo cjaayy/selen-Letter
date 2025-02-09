@@ -2,12 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
     <title>Love Letter</title>
   </head>
   <body>
-    
+    <div class="bg-image"></div>
+
     <div class="letter-container">
       <!-- Message Above the Dropdown -->
       <p class="music-label">
@@ -29,9 +30,7 @@
       <!-- Buttons Below the Dropdown -->
       <button id="readButton" class="button">💌 Read My Letter</button>
       <button id="backButton" class="button" style="display: none">Back</button>
-      <button id="musicButton" class="button music-button">
-        🎵 Play Music
-      </button>
+      <button id="musicButton" class="button music-button">🎵 Play Music</button>
 
       <div id="fullLetter"></div>
     </div>
@@ -39,13 +38,14 @@
     <!-- Audio Element -->
     <audio id="bgMusic" loop>
       <source
-        id="musicSource"
         src="music/Nothing's Gonna Hurt You Baby - Cigarettes After Sex.mp3"
         type="audio/mpeg"
-        id="musicSource"
+      />
+      <source
         src="music/Apocalypse - Cigarettes After Sex.mp3"
         type="audio/mpeg"
       />
+      Your browser does not support the audio element.
     </audio>
 
     <script src="index.js"></script>
