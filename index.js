@@ -49,7 +49,7 @@ function createHeart() {
   document.body.appendChild(heart);
 }
 
-// setInterval(createHeart, 3500);
+setInterval(createHeart, 3500);
 
 readButton.addEventListener("click", () => {
   fullLetter.innerHTML = `
@@ -61,10 +61,11 @@ readButton.addEventListener("click", () => {
             <br><br>
             On this Valentine's Day, I want to express my heartfelt gratitude for your presence in my life. Thank you for being such an incredible friend and for always understanding me. Your empathy and genuine ability to listen make you a rare and precious friend. You have a way of understanding me like no one else can, and that connection is invaluable to me.
             Thank you for always being there, for your unwavering support, and for being the amazing bestfriend.
-            <br><br>
+            <h4>
             Your BFF,
             <br>
             Ris
+            </h4>
          </p>
     `;
 
